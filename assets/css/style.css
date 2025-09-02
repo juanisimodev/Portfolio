@@ -1,3 +1,9 @@
+/* Secciones principales en blanco */
+#formacion,
+#proyectos,
+#contacto {
+    color: #fff;
+}
 * {
     margin: 0;
     padding: 0;
