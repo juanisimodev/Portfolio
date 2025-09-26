@@ -1,8 +1,118 @@
-/* Secciones principales en blanco */
+/* Estilos para todas las secciones */
+section {
+    margin: 2rem 8.5rem;
+    padding: 2rem 0;
+}
+
+#sobre-mi {
+    padding: 1rem 0;
+}
+
+.main .detail {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.main .images {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Secciones principales */
 #formacion,
 #proyectos,
 #contacto {
     color: #fff;
+    max-width: 80%;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border-left: 4px solid #00E8F8;
+}
+
+#formacion h2,
+#proyectos h2,
+#contacto h2 {
+    color: #00E8F8;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Estilos consolidados en el media query principal */
+
+#formacion ul {
+    list-style: none;
+    padding: 0;
+}
+
+#formacion ul li {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#formacion ul li:last-child {
+    border-bottom: none;
+}
+
+#formacion ul li strong {
+    color: #00E8F8;
+}
+
+/* Estilos para el formulario de contacto */
+#contacto form {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#contacto label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #00E8F8;
+    font-weight: 600;
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 0.8rem;
+    margin-bottom: 1rem;
+    border: 2px solid rgba(0, 232, 248, 0.3);
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+}
+
+#contacto input:focus,
+#contacto textarea:focus {
+    outline: none;
+    border-color: #00E8F8;
+    box-shadow: 0 0 10px rgba(0, 232, 248, 0.3);
+}
+
+#contacto button {
+    background-color: #00E8F8;
+    color: #1F252E;
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    margin: 0 auto;
+}
+
+#contacto button:hover {
+    background-color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 232, 248, 0.4);
 }
 * {
     margin: 0;
@@ -17,19 +127,17 @@ body {
 
 /*nav */
 header {
-    padding: 1rem 1rem;
-    background-color: #fff;
+    padding: 1rem;
+    background-color: transparent;
     display: flex;
     justify-content: space-between;
     max-width: 80%;
     margin: auto;
     align-items: center;
-    background-color: transparent;
 }
 img {
     border-radius: 20px;
-    box-shadow: 14px 14px 20px 0 rgba(#fff);
-
+    box-shadow: 14px 14px 20px 0 rgba(255, 255, 255, 0.1);
 }
 .logo {
     font-size: 1.3rem;
@@ -47,7 +155,6 @@ nav a {
     font-size: .97rem;
     font-weight: 600;
     letter-spacing: .7px;
-    padding: 1rem;
     padding: 0.4rem 1rem;
 }
 
@@ -55,7 +162,7 @@ nav a.active,
 nav a:hover {
     color: #00E8F8;
     border-radius: 1rem;
-    transition: all.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 
 #click {
@@ -72,17 +179,13 @@ nav a:hover {
 
 /* Nav */
 
-section {
-    margin: 2rem 8.5rem;
-    ;
-}
-
 .main {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin: 1rem auto;
+    gap: 3rem;
 }
 
 .main h1 {
@@ -99,11 +202,24 @@ section {
     color: #fff;
 }
 
+/* Sección de redes sociales separada */
+#redes-sociales {
+    margin: 3rem 8.5rem;
+    padding: 2rem 0;
+}
+
+.social-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .social {
     display: flex;
     flex-wrap: wrap;
     gap: 1.4rem;
-    margin-top: 1.7rem;
+    margin: 0;
+    padding: 0;
 }
 
 .social a {
@@ -131,25 +247,9 @@ section {
     color: #00E8F8;
 }
 
-.images {
-    background-image: image-set(img);
-    background-repeat: no-repeat;
-    width: 400px;
-    background-size: cover;
-    margin-top: 1%;
-}
+/* Selector .images removido - no se usaba correctamente */
 
-/* @keyframes check {
-    0% {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-} */
+/* Keyframes removido - no se usaba */
 
 @media only screen and (max-width:480px) {
     .menu {
@@ -183,6 +283,116 @@ section {
 
     section {
         margin: 1rem 1.5rem;
+        padding: 1rem 0;
     }
 
+    #formacion,
+    #proyectos,
+    #contacto {
+        max-width: 95%;
+        margin: 1rem auto;
+        padding: 1.5rem;
+    }
+
+    #formacion h2,
+    #proyectos h2,
+    #contacto h2 {
+        font-size: 1.5rem;
+    }
+
+    #contacto form {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    #contacto input,
+    #contacto textarea {
+        padding: 0.6rem;
+        font-size: 16px; /* Evita zoom en iOS */
+    }
+
+    .main {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .main .detail {
+        order: 2;
+    }
+
+    .main .images {
+        order: 1;
+        margin-bottom: 1.5rem;
+    }
+
+    #redes-sociales {
+        margin: 2rem 1.5rem;
+        padding: 1rem 0;
+    }
+
+    .social {
+        justify-content: center;
+    }
+
+}
+
+/* Footer Styles */
+footer {
+    background-color: #0F1419;
+    color: #fff;
+    margin-top: 4rem;
+    padding: 1.5rem 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.footer-bottom p {
+    color: #B8BCC8;
+    font-size: 0.85rem;
+    margin: 0.3rem 0;
+}
+
+/* Estilos para pantallas grandes (desktop) */
+@media only screen and (min-width: 769px) {
+    .main {
+        gap: 4rem;
+    }
+    
+    .main .detail {
+        padding-right: 3rem;
+    }
+    
+    #redes-sociales {
+        margin: 4rem 8.5rem;
+    }
+    
+    #formacion,
+    #proyectos,
+    #contacto {
+        max-width: 60%;
+        padding: 2.5rem 3rem;
+    }
+    
+    #formacion h2,
+    #proyectos h2,
+    #contacto h2 {
+        font-size: 2.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    #contacto form {
+        max-width: 400px;
+    }
+}
+
+/* Footer responsive */
+@media only screen and (max-width: 768px) {
+    .footer-bottom {
+        max-width: 90%;
+    }
 }
