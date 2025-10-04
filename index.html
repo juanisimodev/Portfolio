@@ -67,7 +67,43 @@
         </section>
         <section id="proyectos">
             <h2>Proyectos</h2>
-            <p>En proceso.</p>
+            <div class="proyectos-container">
+                <div class="proyecto-item">
+                    <h3><i class="bi bi-credit-card"></i> AlkeWallet - Banca Móvil</h3>
+                    <p>Aplicación de banca móvil desarrollada con Java y Spring Boot. Permite gestión de cuentas, transferencias, consulta de saldos y historial de transacciones con alta seguridad.</p>
+                    <div class="tecnologias">
+                        <span>Java</span>
+                        <span>Spring Boot</span>
+                        <span>MySQL</span>
+                    </div>
+                    <p class="estado">🚧 En desarrollo</p>
+                </div>
+                
+                <div class="proyecto-item">
+                    <h3><i class="bi bi-calculator"></i> CalifiIA - Plataforma de Exámenes</h3>
+                    <p>Plataforma web para exámenes de matemáticas desarrollada con Golang. Incluye generación automática de preguntas, calificación inteligente y análisis de resultados.</p>
+                    <div class="tecnologias">
+                        <span>Golang</span>
+                        <span>PostgreSQL</span>
+                        <span>REST API</span>
+                        <span>JWT</span>
+                    </div>
+                    <p class="estado">🚧 En desarrollo</p>
+                </div>
+                
+                <div class="proyecto-item">
+                    <h3><i class="bi bi-globe"></i> Portfolio Personal</h3>
+                    <p>Sitio web personal desarrollado con HTML, CSS y JavaScript. Incluye formulario de contacto funcional, diseño responsive y navegación optimizada.</p>
+                    <div class="tecnologias">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Formspree</span>
+                    </div>
+                    <p class="estado">✅ Completado</p>
+                </div>
+            </div>
+            <p class="proyectos-nota">💡 Proyectos reales desarrollados durante mi formación. ¡Sígueme en GitHub para ver el código y las actualizaciones!</p>
         </section>
         <section id="contacto">
             <h2>Contacto</h2>
@@ -100,6 +136,18 @@
                     }
                 });
             };
+
+            // Efecto scroll para header sticky (solo en móvil)
+            window.addEventListener('scroll', function() {
+                if (window.innerWidth <= 480) {
+                    const header = document.querySelector('header');
+                    if (window.scrollY > 50) {
+                        header.classList.add('scrolled');
+                    } else {
+                        header.classList.remove('scrolled');
+                    }
+                }
+            });
             </script>
         </section>
     </main>

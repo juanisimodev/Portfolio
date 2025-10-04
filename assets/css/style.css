@@ -62,6 +62,72 @@ section {
     color: #00E8F8;
 }
 
+/* Estilos para la sección de proyectos */
+.proyectos-container {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.proyecto-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1.5rem;
+    border-left: 4px solid #00E8F8;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.proyecto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 232, 248, 0.2);
+}
+
+.proyecto-item h3 {
+    color: #00E8F8;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.proyecto-item p {
+    color: #B8BCC8;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.tecnologias {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tecnologias span {
+    background-color: rgba(0, 232, 248, 0.2);
+    color: #00E8F8;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.estado {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.proyectos-nota {
+    text-align: center;
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: rgba(0, 232, 248, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 232, 248, 0.3);
+    font-style: italic;
+}
+
 /* Estilos para el formulario de contacto */
 #contacto form {
     max-width: 500px;
@@ -117,6 +183,11 @@ section {
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden; /* Evita scroll horizontal global */
 }
 
 body {
@@ -252,6 +323,11 @@ nav a:hover {
 /* Keyframes removido - no se usaba */
 
 @media only screen and (max-width:480px) {
+    body {
+        padding-top: 80px; /* Espacio para el header fijo en móvil */
+        overflow-x: hidden; /* Evita scroll horizontal */
+    }
+
     .menu {
         display: block;
         font-size: 1.5rem;
@@ -263,17 +339,27 @@ nav a:hover {
         padding: 0.7rem 1rem;
         align-items: center;
         max-width: 100%;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        background-color: rgba(31, 37, 46, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
     }
 
     nav {
-        position: absolute;
+        position: fixed;
         display: grid;
-        top: 75px;
+        top: 80px; /* Justo debajo del header fijo */
         text-align: center;
         background-color: #1F252E;
         left: -100%;
-        z-index: 1;
+        z-index: 999; /* Menor que el header pero mayor que el contenido */
         width: 100%;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
     #click:checked~nav {
@@ -298,6 +384,24 @@ nav a:hover {
     #proyectos h2,
     #contacto h2 {
         font-size: 1.5rem;
+    }
+
+    /* Proyectos responsive */
+    .proyecto-item {
+        padding: 1rem;
+    }
+
+    .proyecto-item h3 {
+        font-size: 1.1rem;
+    }
+
+    .tecnologias {
+        gap: 0.3rem;
+    }
+
+    .tecnologias span {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
     }
 
     #contacto form {
@@ -394,5 +498,13 @@ footer {
 @media only screen and (max-width: 768px) {
     .footer-bottom {
         max-width: 90%;
+    }
+}
+
+/* Header scrolled effect - solo para móvil */
+@media only screen and (max-width: 480px) {
+    header.scrolled {
+        background-color: rgba(31, 37, 46, 0.98);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     }
 }
