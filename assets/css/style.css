@@ -95,6 +95,7 @@ section {
     color: #B8BCC8;
     line-height: 1.6;
     margin-bottom: 1rem;
+    overflow-wrap: anywhere;
 }
 
 .app-banca-galeria {
@@ -207,6 +208,7 @@ section {
     color: #B8BCC8;
     margin-bottom: 0.45rem;
     line-height: 1.5;
+    overflow-wrap: anywhere;
 }
 
 .proyecto-detalles code {
@@ -216,6 +218,8 @@ section {
     border-radius: 6px;
     padding: 0.1rem 0.35rem;
     font-size: 0.78rem;
+    white-space: normal;
+    word-break: break-word;
 }
 
 .tecnologias {
@@ -349,7 +353,7 @@ html, body {
 
 body {
     font-family: 'Poppins', sans-serif;
-    max-height: 100vh;
+    min-height: 100vh;
     background-color: #1F252E;
 }
 
@@ -519,6 +523,11 @@ nav a:hover {
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    nav a {
+        display: block;
+        padding: 0.85rem 1rem;
+    }
+
     #click:checked~nav {
         left: 0%;
         transition: all 0.3s ease;
@@ -545,11 +554,17 @@ nav a:hover {
 
     /* Proyectos responsive */
     .proyecto-item {
-        padding: 1rem;
+        padding: 0.95rem;
     }
 
     .proyecto-item h3 {
         font-size: 1.1rem;
+        align-items: flex-start;
+        line-height: 1.3;
+    }
+
+    .proyecto-item p {
+        font-size: 0.92rem;
     }
 
     .tecnologias {
@@ -563,11 +578,15 @@ nav a:hover {
 
     .proyecto-links {
         gap: 0.45rem;
+        display: grid;
+        grid-template-columns: 1fr;
     }
 
     .btn-proyecto {
         font-size: 0.78rem;
         padding: 0.4rem 0.75rem;
+        width: 100%;
+        justify-content: center;
     }
 
     .proyecto-subtitulo {
@@ -589,6 +608,27 @@ nav a:hover {
 
     .captura-item img {
         height: 180px;
+    }
+
+    .lightbox {
+        padding: 0.75rem;
+    }
+
+    .lightbox-image {
+        max-width: 96vw;
+        max-height: 72vh;
+    }
+
+    .lightbox-caption {
+        font-size: 0.85rem;
+    }
+
+    .lightbox-close {
+        top: 10px;
+        right: 10px;
+        width: 38px;
+        height: 38px;
+        font-size: 1.5rem;
     }
 
     #contacto form {
@@ -683,6 +723,17 @@ footer {
 
 /* Footer responsive */
 @media only screen and (max-width: 768px) {
+    #formacion,
+    #proyectos,
+    #contacto {
+        max-width: 92%;
+        padding: 1.35rem;
+    }
+
+    .proyecto-detalles li {
+        font-size: 0.9rem;
+    }
+
     .footer-bottom {
         max-width: 90%;
     }
