@@ -69,14 +69,82 @@
             <h2>Proyectos</h2>
             <div class="proyectos-container">
                 <div class="proyecto-item">
-                    <h3><i class="bi bi-credit-card"></i> AlkeWallet - Banca Móvil</h3>
-                    <p>Aplicación de banca móvil desarrollada con Java y Spring Boot. Permite gestión de cuentas, transferencias, consulta de saldos y historial de transacciones con alta seguridad.</p>
-                    <div class="tecnologias">
-                        <span>Java</span>
-                        <span>Spring Boot</span>
-                        <span>MySQL</span>
+                    <h3><i class="bi bi-credit-card"></i> App Banca</h3>
+                    <p>Aplicación web bancaria construida con Spring Boot + Thymeleaf. Permite autenticación por RUT, visualización de cuentas y movimientos, transferencias entre clientes y paneles diferenciados por rol (USER, GERENTE, SYS_ADMIN).</p>
+                    <div class="app-banca-galeria">
+                        <figure class="captura-item">
+                            <img class="captura-zoom" src="assets/img/app-banca/login.png" alt="Pantalla de login de App Banca" loading="lazy" onerror="this.parentElement.style.display='none'">
+                            <figcaption>Login por RUT</figcaption>
+                        </figure>
+                        <figure class="captura-item">
+                            <img class="captura-zoom" src="assets/img/app-banca/inicio.png" alt="Pantalla de inicio de App Banca" loading="lazy" onerror="this.parentElement.style.display='none'">
+                            <figcaption>Inicio de la app</figcaption>
+                        </figure>
+                        <figure class="captura-item">
+                            <img class="captura-zoom" src="assets/img/app-banca/dashboard-general.png" alt="Dashboard general de App Banca" loading="lazy" onerror="this.parentElement.style.display='none'">
+                            <figcaption>Dashboard general</figcaption>
+                        </figure>
+                        <figure class="captura-item">
+                            <img class="captura-zoom" src="assets/img/app-banca/dashboard-usuario.png" alt="Dashboard de usuario en App Banca" loading="lazy" onerror="this.parentElement.style.display='none'">
+                            <figcaption>Dashboard usuario</figcaption>
+                        </figure>
+                        <figure class="captura-item">
+                            <img class="captura-zoom" src="assets/img/app-banca/dashboard-gerente.png" alt="Dashboard de gerente en App Banca" loading="lazy" onerror="this.parentElement.style.display='none'">
+                            <figcaption>Dashboard gerente</figcaption>
+                        </figure>
                     </div>
-                    <p class="estado">🚧 En desarrollo</p>
+                    <div class="tecnologias">
+                        <span>Java 25</span>
+                        <span>Spring Boot 4.x</span>
+                        <span>Spring Security</span>
+                        <span>Spring Data JPA</span>
+                        <span>Hibernate</span>
+                        <span>PostgreSQL (Supabase)</span>
+                        <span>Thymeleaf</span>
+                        <span>Bootstrap 5</span>
+                        <span>Maven</span>
+                    </div>
+                    <p class="proyecto-subtitulo">Características principales</p>
+                    <ul class="proyecto-detalles">
+                        <li>Login por RUT y password con Spring Security.</li>
+                        <li>Dashboard dinámico por rol: USER, GERENTE y SYS_ADMIN.</li>
+                        <li>Transferencias atómicas con <code>@Transactional</code> y doble trazabilidad.</li>
+                        <li>Reglas de negocio: sin montos <= 0 y sin saldo negativo en origen.</li>
+                        <li>Monitoreo de riesgo alto para movimientos con monto absoluto >= $500.000.</li>
+                    </ul>
+                    <p class="proyecto-subtitulo">Arquitectura y modelo</p>
+                    <ul class="proyecto-detalles">
+                        <li>Estructura en capas MVC: domain, repository, service, controller, dto, config.</li>
+                        <li>Entidad <strong>User</strong>: RUT único para login, password BCrypt, roles y cuentas 1:N.</li>
+                        <li>Entidad <strong>Account</strong>: número de cuenta único, tipo AHORRO/CORRIENTE, saldo decimal.</li>
+                        <li>Entidad <strong>Movement</strong>: UUID, fecha, descripción, monto y saldo resultante.</li>
+                    </ul>
+                    <p class="proyecto-subtitulo">Seguridad y endpoints</p>
+                    <ul class="proyecto-detalles">
+                        <li>Rutas públicas: <code>/login</code> y recursos estáticos.</li>
+                        <li><code>/admin/**</code> solo para SYS_ADMIN. Resto de rutas autenticadas.</li>
+                        <li>Endpoints: <code>GET /login</code>, <code>GET /dashboard</code>, <code>GET/POST /transfer</code>, <code>POST /admin/users</code>, <code>POST /logout</code>.</li>
+                        <li>Redirección post-login a <code>/dashboard</code>.</li>
+                    </ul>
+                    <p class="proyecto-subtitulo">Seed, configuración y ejecución</p>
+                    <ul class="proyecto-detalles">
+                        <li>Seed automático: admin (RUT 1-9, rol SYS_ADMIN) y usuario de prueba (RUT 12.345.678-9, rol USER).</li>
+                        <li>Configuración en <code>src/main/resources/application.properties</code> con datasource y JPA.</li>
+                        <li>Ejecución local: <code>./mvnw clean spring-boot:run</code> o <code>mvnw.cmd clean spring-boot:run</code>.</li>
+                        <li>Pruebas: <code>./mvnw test</code>. App local en <code>http://localhost:8080/login</code>.</li>
+                    </ul>
+                    <div class="proyecto-links">
+                        <a class="btn-proyecto" href="https://github.com/juanisimodev/app-banca" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-github"></i> Ver código
+                        </a>
+                        <a class="btn-proyecto btn-proyecto-secundario" href="https://github.com/juanisimodev/app-banca/tree/main/docs" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-journal-text"></i> Documentación
+                        </a>
+                        <a class="btn-proyecto btn-proyecto-secundario" href="https://github.com/juanisimodev" target="_blank" rel="noopener noreferrer">
+                            <i class="bi bi-person-circle"></i> Mi GitHub
+                        </a>
+                    </div>
+                    <p class="estado">✅ Completado</p>
                 </div>
                 
                 <div class="proyecto-item">
@@ -148,9 +216,59 @@
                     }
                 }
             });
+
+            document.addEventListener('DOMContentLoaded', function() {
+                var lightbox = document.getElementById('lightbox');
+                var lightboxImage = document.getElementById('lightbox-image');
+                var lightboxCaption = document.getElementById('lightbox-caption');
+                var lightboxClose = document.getElementById('lightbox-close');
+                var zoomImages = document.querySelectorAll('.captura-zoom');
+
+                if (!lightbox || !lightboxImage || !lightboxCaption || !lightboxClose || zoomImages.length === 0) {
+                    return;
+                }
+
+                function closeLightbox() {
+                    lightbox.classList.remove('active');
+                    lightbox.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+
+                zoomImages.forEach(function(image) {
+                    image.addEventListener('click', function() {
+                        var caption = image.closest('.captura-item').querySelector('figcaption');
+                        lightboxImage.src = image.src;
+                        lightboxImage.alt = image.alt;
+                        lightboxCaption.textContent = caption ? caption.textContent : image.alt;
+                        lightbox.classList.add('active');
+                        lightbox.setAttribute('aria-hidden', 'false');
+                        document.body.style.overflow = 'hidden';
+                    });
+                });
+
+                lightboxClose.addEventListener('click', closeLightbox);
+
+                lightbox.addEventListener('click', function(event) {
+                    if (event.target === lightbox) {
+                        closeLightbox();
+                    }
+                });
+
+                document.addEventListener('keydown', function(event) {
+                    if (event.key === 'Escape' && lightbox.classList.contains('active')) {
+                        closeLightbox();
+                    }
+                });
+            });
             </script>
         </section>
     </main>
+
+    <div id="lightbox" class="lightbox" aria-hidden="true">
+        <button id="lightbox-close" class="lightbox-close" aria-label="Cerrar visor">&times;</button>
+        <img id="lightbox-image" class="lightbox-image" src="" alt="Vista ampliada de captura">
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+    </div>
 
     <footer>
         <div class="footer-bottom">
